@@ -1,8 +1,11 @@
 window.onload = function() {
     let saveButton = document.getElementById("save");
     let loadButton = document.getElementById("load");
+    let message = document.getElementById("message");
 
     saveButton.onclick = function() {
+        saveButton.innerHTML = "Saving...";
+
         chrome.tabs.query({},function(tabs){     
             let urls = [];
 
@@ -11,7 +14,8 @@ window.onload = function() {
             });
 
             chrome.storage.sync.set({"urls": urls}, function() {
-                console.log("Urls saved");
+                saveButton.innerHTML = "Save";
+                message.innerHTML = "Saved";
             })
         });
     }
@@ -23,6 +27,8 @@ window.onload = function() {
                     url: data.urls[i]
                 })
             }
+
+            message.innerHTML = "Loaded";
         })
     }
 }
