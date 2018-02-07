@@ -63,3 +63,16 @@
 body {
     background: #0e83cd;
 }
+
+img {
+    max-width: 60%;
+    margin-top: 2%;
+}
+
+p {
+    color: #fff;
+    font-family: inherit;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
